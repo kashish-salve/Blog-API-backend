@@ -5,6 +5,7 @@ from sqlalchemy import pool
 from src.utils.settings import settings
 from src.user.models import UserModel
 from src.blog.models import BlogModel
+from src.comment.models import CommentModel
 from src.utils.db import Base
 
 from alembic import context

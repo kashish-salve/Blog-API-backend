@@ -12,6 +12,7 @@ class BlogModel(Base):
     user_id =Column(Integer,ForeignKey("users.id"))
 
     user = relationship("UserModel", back_populates="blogs")
+    comments = relationship("CommentModel", back_populates="blog")
 
 
     

@@ -1,6 +1,7 @@
 from sqlalchemy import Column,Integer,String,Boolean
 from src.utils.db import Base
 from sqlalchemy.orm import relationship
+from src.comment.models import CommentModel
 
 
 class UserModel(Base):
@@ -13,3 +14,4 @@ class UserModel(Base):
     email = Column(String)
 
     blogs = relationship("BlogModel", back_populates="user")
+    comments = relationship("CommentModel", back_populates="user")

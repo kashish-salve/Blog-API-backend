@@ -23,3 +23,8 @@ def get_blog_by_id(blog_id:int,db:Session=Depends(get_db),user:UserModel=Depends
 @blog_routes.put("/update_blog/{blog_id}",status_code=status.HTTP_201_CREATED)
 def update_blog(body:BlogSchema,blog_id:int,db:Session=Depends(get_db),user:UserModel=Depends(is_authenticated)):
     return controller.update_blog(body,blog_id,db,user)
+
+
+@blog_routes.delete("/delete_blog/{blog_id}",status_code=status.HTTP_204_NO_CONTENT)
+def delete_blog(blog_id:int,db:Session=Depends(get_db),user:UserModel=Depends(is_authenticated)):
+    return controller.delete_blog(blog_id, db ,user)

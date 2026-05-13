@@ -43,3 +43,14 @@ def update_blog(body:BlogSchema,blog_id:int,db:Session,user:UserModel):
         db.commit()
         db.refresh(one_blog)
         return one_blog
+
+def delete_blog(blog_id:int,db:Session,user:UserModel):
+    one_blog = db.query(BlogModel).get(blog_id)
+    if not one_blog:
+        raise HTTPException(404,detail="blog id is incorrect")
+    if one_blog.user_id != user.id:
+        raise HTTPException(403,detail="you are not allowed to delete this blog")
+    
+    db.delete(one_blog)
+    db.commit()
+    return None
