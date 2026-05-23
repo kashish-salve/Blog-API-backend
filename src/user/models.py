@@ -15,3 +15,4 @@ class UserModel(Base):
 
     blogs = relationship("BlogModel", back_populates="user")
     comments = relationship("CommentModel", back_populates="user")
+    likes = relationship("LikeModel", back_populates="user")

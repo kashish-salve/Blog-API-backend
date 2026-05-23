@@ -21,4 +21,4 @@ def get_comments(blog_id: int, db: Session = Depends(get_db)):
 
 @comment_routes.delete("/{comment_id}")
 def delete_comment(comment_id: int, db: Session = Depends(get_db), user: UserModel = Depends(is_authenticated)):
-    return controller.delete_comment(comment_id, db, user)
+    return controller.delete_comment(comment_id, db, user )

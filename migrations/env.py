@@ -6,6 +6,7 @@ from src.utils.settings import settings
 from src.user.models import UserModel
 from src.blog.models import BlogModel
 from src.comment.models import CommentModel
+from src.like.models import LikeModel
 from src.utils.db import Base
 
 from alembic import context
